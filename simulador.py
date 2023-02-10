@@ -34,9 +34,9 @@ if st.button("Calcular Premiação"):
     if opcao == "Crescimento":
 
         #Calculando premiação
-        if input_FatXP >= 100000:
-            pcf = ((input_FatXP/1000000)*5000)
-        if input_FatXP < 100000:
+        if input_FatXP >= 125000:
+            pcf = ((input_FatXP/1000000)*10000)
+        if input_FatXP < 125000:
             pcf = 0
         if input_Incremento >= 6000000:
             pcinc = ((input_Incremento/1000000)*400)
@@ -110,9 +110,9 @@ if st.button("Calcular Premiação"):
     if opcao == "Resultado":
 
         #Calculando premiação
-        if input_FatXP >= 200000:
-            pcf = ((input_FatXP/1000000)*10000)
-        if input_FatXP < 200000:
+        if input_FatXP >= 250000:
+            pcf = ((input_FatXP/1000000)*30000)
+        if input_FatXP < 250000:
             pcf = 0
         if input_Incremento >= 20000000:
             pcinc = ((input_Incremento/1000000)*800)
