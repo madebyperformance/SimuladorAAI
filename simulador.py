@@ -47,7 +47,7 @@ if st.button("Calcular Premiação"):
         if input_Contas < 48:
             pccon = 0
         
-        prem = (pcinc + pccon + pcf)
+        prem = (pcinc + pcf)
         #Variante do ROA
         if input_ROA >= 0.75:
             pcroa = (prem*1)
