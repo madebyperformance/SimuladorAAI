@@ -6,6 +6,9 @@ st.title('Simulador do Partnership 2023')
 st.caption("Use este simulador para calcular quanto de premiação você poderá receber ao final do ano. Importante frisar que a premiação é calculada em cima de valores preenchidos por você e a premição é uma aproximação.")
 
 opcao = st.radio( "Selecione seu grupo:",("Crescimento","Resultado"))
+footer {
+    visibility: hidden;
+}
 
 if opcao == "Crescimento":
     input_FatXP=st.number_input("Faturamento total do ano",format="%.0f")
