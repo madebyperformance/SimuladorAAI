@@ -7,10 +7,9 @@ st.caption("Use este simulador para calcular quanto de premiação você poderá
 
 opcao = st.radio( "Selecione seu grupo:",("Crescimento","Resultado"))
 
-st.markdown(footer {
+st.markdown("<style> {footer {
     visibility: hidden;
-}
-,unsafe_allow_html=true)
+}} <style>",unsafe_allow_html=true)
 
 if opcao == "Crescimento":
     input_FatXP=st.number_input("Faturamento total do ano",format="%.0f")
