@@ -97,7 +97,7 @@ if st.button("Calcular Premiação"):
         premt4="{:,.0f}".format(premt4) 
         premt4 = premt4.replace(",",".")
 
-        valores = [["Faturamento XP",pcf,pcf,pcf,pcf],["Captação Líquida + Transferências",pcinc,pcinc,pcinc,pcinc],["Ativação de contas",pccon,pccon,pccon,pccon],["Adicional ROA",pcroa,pcroa,pcroa,pcroa],["Adicional KPI Global",kpi1,kpi2,kpi3,kpi4],["Premiação Total",premt1,premt2,premt3,premt4]]
+        valores = [["Faturamento Total",pcf,pcf,pcf,pcf],["Captação Líquida + Transferências",pcinc,pcinc,pcinc,pcinc],["Ativação de contas",pccon,pccon,pccon,pccon],["Adicional ROA",pcroa,pcroa,pcroa,pcroa],["Adicional KPI Global",kpi1,kpi2,kpi3,kpi4],["Premiação Total",premt1,premt2,premt3,premt4]]
         df = pd.DataFrame(valores,columns=['KPI','Meta Global <80%','Meta Global >80%','Meta Global >90%','Meta Global >100%'])
 
         valores2 = [["Faturamento XP",pcf],["Incremento",pcinc],["Ativação de contas",pccon],["Adicional ROA",pcroa]]
