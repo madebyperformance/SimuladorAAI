@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 # Define as cores da página
 st.set_page_config(
-    page_title='Simulador TOP50',
+    page_title='Simulador Partnership Assessor',
     page_icon=':bar_chart:',
     layout='wide'
 )
@@ -14,8 +14,8 @@ st.markdown('<div style="position: fixed; bottom: 0; right: 100px;"><p style="co
 st.markdown('<div style="position: fixed; bottom: 0; right: 1420px;"><p style="color: grey; font-size: 14px;font-family: Barlow;">Criado por Pedro Dantas</p></div>', unsafe_allow_html=True)
 
 def link():
-    st.sidebar.markdown("<a href='https://madebyperformance-simuladoraai-simulador-0pnd67.streamlit.app/' target='_blank' style='text-decoration: none; font-family: Barlow; font-weight: bold; font-size: 22px; color: white;'>SIMULADOR PARTNERSHIP</a>", unsafe_allow_html=True)
-    st.sidebar.markdown("<span style='font-family: Barlow; color: white; font-size: 14px;'>Clique acima para ser redirecionado ao Simulador do Partnership Assessor 2023.</span>", unsafe_allow_html=True)
+    st.sidebar.markdown("<a href='https://madebyperformance-simulador-top-50-simulador50-tww9qe.streamlit.app/' target='_blank' style='text-decoration: none; font-family: Barlow; font-weight: bold; font-size: 22px; color: white;'>SIMULADOR TOP50</a>", unsafe_allow_html=True)
+    st.sidebar.markdown("<span style='font-family: Barlow; color: white; font-size: 14px;'>Clique acima para ser redirecionado ao Simulador do TOP50 2023.</span>", unsafe_allow_html=True)
 
 link()
 
