@@ -13,6 +13,12 @@ with open('style.css') as f:
 st.markdown('<div style="position: fixed; bottom: 0; right: 100px;"><p style="color: white;"><span style="color:black;font-size: 20px;font-family: Barlow;">MADE BY </span><span style="color:#9966FF;font-size: 20px; font-family: Arial, sans-serif;">PERFORMANCE</span></p></div>', unsafe_allow_html=True)
 st.markdown('<div style="position: fixed; bottom: 0; right: 1420px;"><p style="color: grey; font-size: 14px;font-family: Barlow;">Criado por Pedro Dantas</p></div>', unsafe_allow_html=True)
 
+def link():
+    st.sidebar.markdown("<a href='https://madebyperformance-simuladoraai-simulador-0pnd67.streamlit.app/' target='_blank' style='text-decoration: none; font-family: Barlow; font-weight: bold; font-size: 22px; color: white;'>SIMULADOR PARTNERSHIP</a>", unsafe_allow_html=True)
+    st.sidebar.markdown("<span style='font-family: Barlow; color: white; font-size: 14px;'>Clique acima para ser redirecionado ao Simulador do Partnership Assessor 2023.</span>", unsafe_allow_html=True)
+
+link()
+
 
 st.title('Simulador do Partnership 2023')
 st.caption("Use este simulador para calcular quanto de premiação você poderá receber ao final do ano. Importante frisar que a premiação é calculada em cima de valores preenchidos por você e a premição é uma aproximação.")
