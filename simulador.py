@@ -11,7 +11,7 @@ with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 st.markdown('<div style="position: fixed; bottom: 0; right: 100px;"><p style="color: white;"><span style="color:black;font-size: 20px;font-family: Barlow;">MADE BY </span><span style="color:#9966FF;font-size: 20px; font-family: Arial, sans-serif;">PERFORMANCE</span></p></div>', unsafe_allow_html=True)
-st.markdown('<div style="position: fixed; bottom: 0; right: 1420px;"><p style="color: grey; font-size: 14px;font-family: Barlow;">Criado por Pedro Dantas</p></div>', unsafe_allow_html=True)
+st.markdown('<div style="position: fixed; bottom: 0; right: 1200px;"><p style="color: grey; font-size: 14px;font-family: Barlow;">Criado por Pedro Dantas</p></div>', unsafe_allow_html=True)
 
 def link():
     st.sidebar.markdown("<a href='https://madebyperformance-simulador-top-50-simulador50-tww9qe.streamlit.app/' target='_blank' style='text-decoration: none; font-family: Barlow; font-weight: bold; font-size: 22px; color: white;'>SIMULADOR TOP50</a>", unsafe_allow_html=True)
