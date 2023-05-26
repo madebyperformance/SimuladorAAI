@@ -1,16 +1,21 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from PIL import Image
+
+#Importar logo
+im = Image.open(r'logo.png')
+
 # Define as cores da página
 st.set_page_config(
-    page_title='Simulador Partnership Assessor',
-    page_icon=':bar_chart:',
-    layout='wide'
-)
+    page_title='Simulador Partnership AAI',
+    page_icon=im,
+    layout='wide')
+
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-st.markdown('<div style="position: fixed; bottom: 0; right: 100px;"><p style="color: white;"><span style="color:black;font-size: 20px;font-family: Barlow;">MADE BY </span><span style="color:#9966FF;font-size: 20px; font-family: Arial, sans-serif;">PERFORMANCE</span></p></div>', unsafe_allow_html=True)
+st.markdown('<div style="position: fixed; bottom: 0; right: 100px;"><p style="color: white;"><span style="color:black;font-size: 20px;font-family: Barlow Semibold;">MADE BY </span><span style="color:#9966FF;font-size: 20px; font-family: Barlow Semibold, sans-serif;">PERFORMANCE</span></p></div>', unsafe_allow_html=True)
 st.markdown('<div style="position: fixed; bottom: 0; right: 1250px;"><p style="color: grey; font-size: 14px;font-family: Barlow;">Criado por Pedro Dantas</p></div>', unsafe_allow_html=True)
 
 def link():
