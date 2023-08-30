@@ -193,5 +193,5 @@ if st.button("Calcular Premiação"):
         valores = [["Faturamento Total",pcf,pcf,pcf,pcf],["Captação Líquida + Transferências",pcinc,pcinc,pcinc,pcinc],["Adicional ROA",pcroa,pcroa,pcroa,pcroa],["Adicional KPI Global",kpi1,kpi2,kpi3,kpi4],["Premiação Total",premt1,premt2,premt3,premt4]]
         df = pd.DataFrame(valores,columns=['KPI','Meta Global <80%','Meta Global >80%','Meta Global >90%','Meta Global >100%'])
         
-        st.caption(f"Premiações mostradas abaixo estão em Reais por ações da Companhia.")
+        st.caption(f"Premiações mostradas abaixo estão em Reais por opções de ações da Companhia.")
         st.dataframe(df) 
