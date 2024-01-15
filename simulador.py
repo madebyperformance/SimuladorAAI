@@ -24,174 +24,82 @@ def link():
 
 link()
 
-
 st.title('Simulador Partnership AAI')
 st.caption("Use este simulador para calcular quanto de premiação você poderá receber ao final do ano. Importante frisar que a premiação é calculada em cima de valores preenchidos por você e a premição é uma aproximação.")
 
-opcao = st.radio( "Selecione seu grupo:",("Crescimento","Resultado"))
-
-if opcao == "Crescimento":
-    input_FatXP=st.number_input("Faturamento total do ano",format="%.0f")
-    fxp="{:,.0f}".format(input_FatXP) 
-    fxp = fxp.replace(",",".")
-    st.caption(f"Receita Selecionada: R$ {fxp}")
-    input_Incremento=st.number_input("Captação Líquida + Transferência total do ano",format="%.0f")
-    inc="{:,.0f}".format(input_Incremento) 
-    inc = inc.replace(",",".")
-    st.caption(f"Incremento Selecionado: R$ {inc}")
-    input_Contas=st.number_input("Total de contas Ativadas no ano",format="%.0f")
-    input_ROA=st.number_input("ROA médio do ano")
-elif opcao == "Resultado":
-    input_FatXP=st.number_input("Faturamento total do ano",format="%.0f")
-    fxp="{:,.0f}".format(input_FatXP) 
-    fxp = fxp.replace(",",".")
-    st.caption(f"Receita Selecionada: R$ {fxp}")
-    input_Incremento=st.number_input("Captação Líquida + Transferência total do ano",format="%.0f")
-    inc="{:,.0f}".format(input_Incremento) 
-    inc = inc.replace(",",".")
-    st.caption(f"Incremento Selecionado: R$ {inc}")
-    input_ROA=st.number_input("ROA médio do ano")
+input_FatXP=st.number_input("Faturamento total do ano",format="%.0f")
+fxp="{:,.0f}".format(input_FatXP) 
+fxp = fxp.replace(",",".")
+st.caption(f"Receita Selecionada: R$ {fxp}")
+input_Incremento=st.number_input("Captação Líquida + Transferência total do ano",format="%.0f")
+inc="{:,.0f}".format(input_Incremento) 
+inc = inc.replace(",",".")
+st.caption(f"Incremento Selecionado: R$ {inc}")
+input_ROA=st.number_input("ROAt do mês")
+input_C=st.number_input("Quantidade de clientes Ativos atual")
 
 if st.button("Calcular Premiação"):
-
-    if opcao == "Crescimento":
-
+    
         #Calculando premiação
-        if input_FatXP >= 125000:
+        
+        #FAT
+        if input_FatXP >= 50000:
+            pcf = ((input_FatXP/1000000)*20000)
+        elif input_FatXP >= 35000:
+            pcf = ((input_FatXP/1000000)*15000)
+        elif input_FatXP >= 25000:
             pcf = ((input_FatXP/1000000)*10000)
-        if input_FatXP < 125000:
+        elif input_FatXP >= 0:
+            pcf = ((input_FatXP/1000000)*5000)
+        else:
             pcf = 0
-        if input_Incremento >= 6000000:
-            pcinc = ((input_Incremento/1000000)*400)
-        if input_Incremento < 6000000:
-            pcinc = 0
-        if input_Contas >= 48:
-            pccon = (input_Contas*100)
-        if input_Contas < 48:
-            pccon = 0
-        
-        prem = (pcinc + pcf)
-        #Variante do ROA
-        if input_ROA >= 0.75:
-            pcroa = (prem*1)
-        elif input_ROA >= 0.60 and input_ROA < 0.75:
-            pcroa = (prem*0.75)
-        elif input_ROA >= 0.30 and input_ROA < 0.60:
-            pcroa = (prem*0.25)
-        elif input_ROA < 0.30:
-            pcroa = (prem*0)
-        
-        premt = (pcinc + pccon + pcf + pcroa)
 
+        #INC
+        if input_Incremento >= 5000000:
+            pcinc = (input_Incremento/1000000) * 400
+        elif input_Incremento >= 3000000:
+            pcinc = (input_Incremento/1000000) * 400
+        elif input_Incremento >= 2000000:
+            pcinc = (input_Incremento/1000000) * 400
+        elif input_Incremento >= 1000000:
+            pcinc = (input_Incremento/1000000) * 400
+        else:
+            pcinc = 0
+
+        #BONUS CONTA
+        if input_Contas >= 120:
+            bonus_con = 1
+        else
+            bonus_con = 2
+
+        #VALIDADOR ROA
+        if input_ROA >= 0.5:
+            bonus_roa = 1
+        else
+            bonus_roa = 0
+
+        #premiação fat
+        pcf = pcf * bonus_roa
+        prem_f = (pcf + pcinc)*bonus_con
+        p_b_con = prem_f - (pcf + pcinc)
+
+        #FORMATAÇÃO
+        #fat
         pcf="{:,.0f}".format(pcf) 
         pcf = pcf.replace(",",".")
-        pccon="{:,.0f}".format(pccon) 
-        pccon = pccon.replace(",",".")
+        #bonus conta
+        p_b_con="{:,.0f}".format(p_b_con) 
+        p_b_con = p_b_con.replace(",",".")
+        #prem inc
         pcinc="{:,.0f}".format(pcinc) 
         pcinc = pcinc.replace(",",".")
-        pcroa="{:,.0f}".format(pcroa) 
-        pcroa = pcroa.replace(",",".")
+        #prem TOTAL
+        prem_f="{:,.0f}".format(prem_f) 
+        prem_f = prem_f.replace(",",".")
+    
 
-        kpi1 = 0
-        kpi2 = (prem*0.25)
-        kpi3 = (prem*0.75)
-        kpi4 = (prem*1)
-
-        premt1 = premt
-        premt2 = (premt+kpi2)
-        premt3 = (premt+kpi3)
-        premt4 = (premt+kpi4)
-
-        kpi1="{:,.0f}".format(kpi1) 
-        kpi1 = kpi1.replace(",",".")
-        kpi2="{:,.0f}".format(kpi2) 
-        kpi2 = kpi2.replace(",",".")
-        kpi3="{:,.0f}".format(kpi3) 
-        kpi3 = kpi3.replace(",",".")
-        kpi4="{:,.0f}".format(kpi4) 
-        kpi4 = kpi4.replace(",",".")
-        
-        premt1="{:,.0f}".format(premt1) 
-        premt1 = premt1.replace(",",".")
-        premt2="{:,.0f}".format(premt2) 
-        premt2 = premt2.replace(",",".")
-        premt3="{:,.0f}".format(premt3) 
-        premt3 = premt3.replace(",",".")
-        premt4="{:,.0f}".format(premt4) 
-        premt4 = premt4.replace(",",".")
-
-        valores = [["Faturamento Total",pcf,pcf,pcf,pcf],["Captação Líquida + Transferências",pcinc,pcinc,pcinc,pcinc],["Ativação de contas",pccon,pccon,pccon,pccon],["Adicional ROA",pcroa,pcroa,pcroa,pcroa],["Adicional KPI Global",kpi1,kpi2,kpi3,kpi4],["Premiação Total",premt1,premt2,premt3,premt4]]
-        df = pd.DataFrame(valores,columns=['KPI','Meta Global <80%','Meta Global >80%','Meta Global >90%','Meta Global >100%'])
-
-        valores2 = [["Faturamento XP",pcf],["Incremento",pcinc],["Ativação de contas",pccon],["Adicional ROA",pcroa]]
-        df2 = pd.DataFrame(valores2,columns=['KPI','Premiação'])
+        valores = [["Premiação Faturamento",pcf],["Premiação Incremento",pcinc],["Bônus contas ativas",p_b_con],["Premiação Total",prem_f]]
+        df = pd.DataFrame(valores,columns=['KPI','Premiação'])
         
         st.caption(f"Premiações mostradas abaixo estão em Reais por ações da Companhia.")
-        st.dataframe(df) 
-
-        
-    if opcao == "Resultado":
-
-        #Calculando premiação
-        if input_FatXP >= 250000:
-            pcf = ((input_FatXP/1000000)*30000)
-        if input_FatXP < 250000:
-            pcf = 0
-        if input_Incremento >= 20000000:
-            pcinc = ((input_Incremento/1000000)*800)
-        if input_Incremento < 20000000:
-            pcinc = 0
-        
-        prem = (pcinc + pcf)
-        #Variante do ROA
-        if input_ROA >= 0.75:
-            pcroa = (prem*1)
-        elif input_ROA >= 0.60 and input_ROA < 0.75:
-            pcroa = (prem*0.75)
-        elif input_ROA >= 0.30 and input_ROA < 0.60:
-            pcroa = (prem*0.25)
-        elif input_ROA < 0.30:
-            pcroa = (prem*0)
-        
-        premt = (pcinc + pcf + pcroa)
-
-        pcf="{:,.0f}".format(pcf) 
-        pcf = pcf.replace(",",".")
-        pcinc="{:,.0f}".format(pcinc) 
-        pcinc = pcinc.replace(",",".")
-        pcroa="{:,.0f}".format(pcroa) 
-        pcroa = pcroa.replace(",",".")
-
-        kpi1 = 0
-        kpi2 = (prem*0.25)
-        kpi3 = (prem*0.75)
-        kpi4 = (prem*1)
-
-        premt1 = premt
-        premt2 = (premt+kpi2)
-        premt3 = (premt+kpi3)
-        premt4 = (premt+kpi4)
-
-        kpi1="{:,.0f}".format(kpi1) 
-        kpi1 = kpi1.replace(",",".")
-        kpi2="{:,.0f}".format(kpi2) 
-        kpi2 = kpi2.replace(",",".")
-        kpi3="{:,.0f}".format(kpi3) 
-        kpi3 = kpi3.replace(",",".")
-        kpi4="{:,.0f}".format(kpi4) 
-        kpi4 = kpi4.replace(",",".")
-        
-        premt1="{:,.0f}".format(premt1) 
-        premt1 = premt1.replace(",",".")
-        premt2="{:,.0f}".format(premt2) 
-        premt2 = premt2.replace(",",".")
-        premt3="{:,.0f}".format(premt3) 
-        premt3 = premt3.replace(",",".")
-        premt4="{:,.0f}".format(premt4) 
-        premt4 = premt4.replace(",",".")
-        
-        valores = [["Faturamento Total",pcf,pcf,pcf,pcf],["Captação Líquida + Transferências",pcinc,pcinc,pcinc,pcinc],["Adicional ROA",pcroa,pcroa,pcroa,pcroa],["Adicional KPI Global",kpi1,kpi2,kpi3,kpi4],["Premiação Total",premt1,premt2,premt3,premt4]]
-        df = pd.DataFrame(valores,columns=['KPI','Meta Global <80%','Meta Global >80%','Meta Global >90%','Meta Global >100%'])
-        
-        st.caption(f"Premiações mostradas abaixo estão em Reais por opções de ações da Companhia.")
         st.dataframe(df) 
