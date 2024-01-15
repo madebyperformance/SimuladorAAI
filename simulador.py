@@ -76,7 +76,7 @@ if st.button("Calcular Premiação"):
         if input_ROA >= 0.5:
             bonus_roa = 1
         elif input_ROA < 0.5:
-            st.caption(f"Para ser premiado na categoria Faturamento você deve ter um ROAt maior que 0,5% no mês.")
+            st.caption("<span style='color:red; font-weight:bold;'>Para ser premiado na categoria Faturamento você deve ter um ROAt maior que 0,5% no mês.</span>", unsafe_allow_html=True)
             bonus_roa = 0
 
         #premiação fat
