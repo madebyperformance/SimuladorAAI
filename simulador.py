@@ -34,8 +34,9 @@ input_Incremento=st.number_input("Captação Líquida + Transferência total do 
 inc="{:,.0f}".format(input_Incremento) 
 inc = inc.replace(",",".")
 st.caption(f"Incremento Selecionado: R$ {inc}")
-input_ROA = st.number_input("ROAt do mês")
 input_C = st.number_input("Quantidade de clientes Ativos atual",format="%.0f")
+input_ROA = st.number_input("ROAt do mês")
+
 
 if st.button("Calcular Premiação"):
     
@@ -75,6 +76,7 @@ if st.button("Calcular Premiação"):
         if input_ROA >= 0.5:
             bonus_roa = 1
         elif input_ROA < 0.5:
+            st.caption(f"Para ser premiado na categoria Faturamento você deve ter um ROAt maior que 0,5% no mês.")
             bonus_roa = 0
 
         #premiação fat
