@@ -35,8 +35,8 @@ input_Incremento=st.number_input("Captação Líquida + Transferência total do 
 inc="{:,.0f}".format(input_Incremento) 
 inc = inc.replace(",",".")
 st.caption(f"Incremento Selecionado: R$ {inc}")
-input_ROA=st.number_input("ROAt do mês")
-input_C=st.number_input("Quantidade de clientes Ativos atual")
+input_ROA = st.number_input("ROAt do mês")
+input_C = st.number_input("Quantidade de clientes Ativos atual",format="%.0f")
 
 if st.button("Calcular Premiação"):
     
