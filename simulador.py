@@ -67,9 +67,9 @@ if st.button("Calcular Premiação"):
             pcinc = 0
 
         #BONUS CONTA
-        if input_Contas >= 120:
+        if input_C >= 120:
             bonus_con = 1
-        elif input_Contas < 120:
+        elif input_C < 120:
             bonus_con = 2
 
         #VALIDADOR ROA
