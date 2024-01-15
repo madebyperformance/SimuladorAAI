@@ -102,5 +102,6 @@ if st.button("Calcular Premiação"):
         valores = [["Premiação Faturamento",pcf],["Premiação Incremento",pcinc],["Bônus contas ativas",p_b_con],["Premiação Total",prem_f]]
         df = pd.DataFrame(valores,columns=['KPI','Premiação'])
         
-        st.caption(f"Premiações mostradas abaixo estão em Reais por ações da Companhia.")
-        st.dataframe(df) 
+        
+        st.dataframe(df)
+        st.caption(f"Premiações mostradas acima estão em Reais por ações da Companhia.")
