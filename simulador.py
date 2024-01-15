@@ -36,7 +36,7 @@ inc = inc.replace(",",".")
 st.caption(f"Incremento Selecionado: R$ {inc}")
 input_C = st.number_input("Quantidade de clientes Ativos atual",format="%.0f")
 input_ROA = st.number_input("ROAt do mês")
-nps = st.number_input("NPS Aniversário")
+nps = st.number_input("NPS Aniversário",format="%.0f")
 
 
 if st.button("Calcular Premiação"):
@@ -107,7 +107,7 @@ if st.button("Calcular Premiação"):
         st.dataframe(df)
         st.caption(f"Premiações mostradas acima estão em Reais por ações da Companhia.")
     if nps < 85:
-        st.caption("<span style='color:red; font-weight:bold;'>Caso seu NPS seja menor que 85 sua premiação é zerada.</span>", unsafe_allow_html=True)
+        st.caption("<span style='color:red; font-weight:bold;'>Caso seu NPS seja menor que 85, sua premiação é zerada.</span>", unsafe_allow_html=True)
 
         pcf = 0
         pcinc = 0
