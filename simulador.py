@@ -49,9 +49,9 @@ if st.button("Calcular Premiação"):
             pcf = ((input_FatXP/1000000)*15000)
         elif input_FatXP >= 25000:
             pcf = ((input_FatXP/1000000)*10000)
-        elif input_FatXP >= 0:
+        elif input_FatXP >= 15000:
             pcf = ((input_FatXP/1000000)*5000)
-        else:
+        elif input_FatXP < 15000:
             pcf = 0
 
         #INC
@@ -63,19 +63,19 @@ if st.button("Calcular Premiação"):
             pcinc = (input_Incremento/1000000) * 400
         elif input_Incremento >= 1000000:
             pcinc = (input_Incremento/1000000) * 400
-        else:
+        elif input_Incremento < 1000000:
             pcinc = 0
 
         #BONUS CONTA
         if input_Contas >= 120:
             bonus_con = 1
-        else
+        elif input_Contas < 120:
             bonus_con = 2
 
         #VALIDADOR ROA
         if input_ROA >= 0.5:
             bonus_roa = 1
-        else
+        elif input_ROA < 0.5:
             bonus_roa = 0
 
         #premiação fat
