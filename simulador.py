@@ -57,13 +57,13 @@ if st.button("Calcular Premiação"):
 
         #INC
         if input_Incremento >= 5000000:
-            pcinc = (input_Incremento/1000000) * 400
+            pcinc = (input_Incremento/1000000) * 500
         elif input_Incremento >= 3000000:
-            pcinc = (input_Incremento/1000000) * 400
+            pcinc = (input_Incremento/1000000) * 375
         elif input_Incremento >= 2000000:
-            pcinc = (input_Incremento/1000000) * 400
+            pcinc = (input_Incremento/1000000) * 250
         elif input_Incremento >= 1000000:
-            pcinc = (input_Incremento/1000000) * 400
+            pcinc = (input_Incremento/1000000) * 125
         elif input_Incremento < 1000000:
             pcinc = 0
 
